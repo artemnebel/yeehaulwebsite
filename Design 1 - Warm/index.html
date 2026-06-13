@@ -1,0 +1,530 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yeehaul Junk Removal â€” Junk Gone in a Flash</title>
+<meta name="description" content="Fast, friendly, and fully insured junk removal. Same-day pickup, transparent pricing, and we do all the heavy lifting. Yeehaw!" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        brand: { 50:'#FEF2F2',100:'#FEE2E2',200:'#FECACA',300:'#FCA5A5',400:'#F87171',500:'#EF4444',600:'#DC2626',700:'#B91C1C',800:'#991B1B',900:'#7F1D1D' },
+        ink:   { 50:'#FAFAF7',100:'#F5F5F4',200:'#E7E5E4',300:'#D6D3D1',400:'#A8A29E',500:'#78716C',600:'#57534E',700:'#44403C',800:'#292524',900:'#1C1917' }
+      },
+      fontFamily: { sans:['"Plus Jakarta Sans"','system-ui','sans-serif'], script:['Pacifico','cursive'] }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-ink-50 text-ink-900">
+
+<!-- ============================= NAV ============================= -->
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-ink-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <a href="index.html" class="logo-chip" aria-label="Yeehaul Junk Removal home">
+      <img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
+      <a href="index.html"    class="nav-link active">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="pricing.html"  class="nav-link">Pricing</a>
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href="tel:+15559334285" class="flex items-center gap-2 px-4 py-2 rounded-full text-ink-900 font-bold hover:text-brand-600 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293a13.502 13.502 0 01-6.143-6.143l1.293-.97c.362-.271.527-.733.417-1.173L8.564 3.852A1.125 1.125 0 007.473 3H6.1A2.25 2.25 0 003.85 5.25c0 .504.054.997.158 1.474" />
+        </svg>
+        <span>(555) 933-4285</span>
+      </a>
+      <a href="book.html" class="btn-brand">
+        Book Online
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5" />
+        </svg>
+      </a>
+    </div>
+
+    <button id="navToggle" class="lg:hidden p-2 rounded-lg hover:bg-ink-100" aria-label="Open menu" aria-expanded="false">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+    </button>
+  </div>
+
+  <div id="mobileDrawer" class="mobile-drawer lg:hidden border-t border-ink-200 bg-white">
+    <div class="px-4 py-4 flex flex-col gap-1">
+      <a href="index.html"    class="px-3 py-3 rounded-lg font-semibold text-ink-900 bg-brand-50">Home</a>
+      <a href="services.html" class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">Services</a>
+      <a href="about.html"    class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">About</a>
+      <a href="pricing.html"  class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">Pricing</a>
+      <div class="h-px bg-ink-200 my-2"></div>
+      <a href="tel:+15559334285" class="px-3 py-3 rounded-lg font-bold text-ink-900">ðŸ“ž (555) 933-4285</a>
+      <a href="book.html" class="btn-brand mt-2 w-full">Book Online</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= HERO ============================= -->
+<section class="relative overflow-hidden">
+  <div class="blob blob-red"   style="width:560px;height:560px;top:-180px;right:-160px;"></div>
+  <div class="blob blob-amber" style="width:420px;height:420px;bottom:-160px;left:-120px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <span class="pill mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+        Same-day pickup available
+      </span>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.02] tracking-tightest">
+        Junk gone <span class="text-gradient">in a flash.</span>
+        <span class="font-script text-brand-600 text-4xl sm:text-5xl lg:text-6xl block mt-3">Yeehaw!</span>
+      </h1>
+      <p class="mt-7 text-lg sm:text-xl text-ink-600 max-w-xl leading-relaxed">
+        We haul off anything that ain't nailed down â€” furniture, appliances, yard waste, you name it.
+        Friendly crew, fair flat-rate pricing, no surprises.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="book.html" class="btn-brand text-base px-7 py-4">
+          Book Online
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+        </a>
+        <a href="tel:+15559334285" class="btn-ghost text-base px-7 py-4">
+          <svg class="w-5 h-5 text-brand-600" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293a13.502 13.502 0 01-6.143-6.143l1.293-.97c.362-.271.527-.733.417-1.173L8.564 3.852A1.125 1.125 0 007.473 3H6.1A2.25 2.25 0 003.85 5.25c0 .504.054.997.158 1.474" /></svg>
+          Call (555) 933-4285
+        </a>
+      </div>
+
+      <div class="mt-10 grid grid-cols-3 gap-4 max-w-lg">
+        <div>
+          <div class="text-3xl font-extrabold text-ink-900">4.9â˜…</div>
+          <div class="text-sm text-ink-500 font-medium">500+ reviews</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-ink-900">60 min</div>
+          <div class="text-sm text-ink-500 font-medium">avg. arrival</div>
+        </div>
+        <div>
+          <div class="text-3xl font-extrabold text-ink-900">80%</div>
+          <div class="text-sm text-ink-500 font-medium">recycled or donated</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right visual: stacked card display -->
+    <div class="relative">
+      <div class="absolute -inset-6 bg-gradient-to-br from-brand-100 to-amber-100 rounded-[2rem] -z-10 blur-2xl opacity-70"></div>
+
+      <div class="relative tilt-soft bg-white rounded-3xl p-6 shadow-[0_30px_60px_-20px_rgba(220,38,38,0.35)] border border-ink-100">
+        <div class="rounded-2xl overflow-hidden">
+          <img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul truck graphic" class="w-full h-auto" />
+        </div>
+        <div class="mt-5 flex items-center justify-between">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-brand-600">Today's pickup</div>
+            <div class="text-lg font-extrabold text-ink-900">1 garage cleanout</div>
+          </div>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-50 text-green-700 text-sm font-semibold">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span> On the way
+          </span>
+        </div>
+      </div>
+
+      <!-- Floating chip cards -->
+      <div class="hidden sm:flex absolute -left-6 -bottom-6 bg-white rounded-2xl shadow-xl border border-ink-100 px-5 py-4 items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-brand-100 flex items-center justify-center text-brand-600 font-extrabold text-xl">$</div>
+        <div>
+          <div class="text-xs text-ink-500 font-medium">Flat-rate quote</div>
+          <div class="text-lg font-extrabold text-ink-900">No hidden fees</div>
+        </div>
+      </div>
+      <div class="hidden sm:flex absolute -right-4 -top-6 bg-white rounded-2xl shadow-xl border border-ink-100 px-5 py-4 items-center gap-3">
+        <div class="w-11 h-11 rounded-xl bg-green-100 flex items-center justify-center text-green-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        </div>
+        <div>
+          <div class="text-xs text-ink-500 font-medium">Fully insured</div>
+          <div class="text-lg font-extrabold text-ink-900">$1M coverage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TRUST STRIP ============================= -->
+<section class="border-y border-ink-200 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+      </div>
+      <div>
+        <div class="font-bold text-ink-900">Licensed & insured</div>
+        <div class="text-sm text-ink-500">$1M liability</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div>
+        <div class="font-bold text-ink-900">Same-day service</div>
+        <div class="text-sm text-ink-500">7 days a week</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zM9 9.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm6.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM8 14s1.5 2 4 2 4-2 4-2"/></svg>
+      </div>
+      <div>
+        <div class="font-bold text-ink-900">Eco-friendly</div>
+        <div class="text-sm text-ink-500">Donate Â· recycle Â· reuse</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-brand-50 flex items-center justify-center text-brand-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25M3 8.25l9-5.25 9 5.25M3 8.25l9 5.25 9-5.25"/></svg>
+      </div>
+      <div>
+        <div class="font-bold text-ink-900">Locally owned</div>
+        <div class="text-sm text-ink-500">Neighbors helping neighbors</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= SERVICES PREVIEW ============================= -->
+<section class="relative py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex items-end justify-between flex-wrap gap-6 mb-12">
+      <div>
+        <span class="pill mb-4">What we haul</span>
+        <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tightest">If it's junk, <span class="text-gradient">we'll take it.</span></h2>
+        <p class="mt-4 text-lg text-ink-600 max-w-xl">From a single mattress to a full property cleanout â€” our crew shows up on time and leaves the place spotless.</p>
+      </div>
+      <a href="services.html" class="hidden sm:inline-flex items-center gap-2 font-bold text-brand-700 hover:text-brand-900 group">
+        See all services
+        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+      </a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card -->
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12L12 2.25 21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Residential cleanouts</h3>
+        <p class="text-ink-600 leading-relaxed">Garages, basements, attics, sheds â€” we'll clear it all out and sweep up after.</p>
+      </div>
+
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m4.5-6H16.5m-1.5 3H16.5m-1.5 3H16.5M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Commercial junk</h3>
+        <p class="text-ink-600 leading-relaxed">Office furniture, retail fixtures, restaurant equipment â€” minimal disruption, maximum hustle.</p>
+      </div>
+
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Appliances & e-waste</h3>
+        <p class="text-ink-600 leading-relaxed">Fridges, washers, dryers, TVs, computers â€” properly recycled, never landfilled.</p>
+      </div>
+
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Furniture removal</h3>
+        <p class="text-ink-600 leading-relaxed">Sofas, mattresses, dressers, dining sets â€” heavy lifting included. We donate what we can.</p>
+      </div>
+
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Yard waste & debris</h3>
+        <p class="text-ink-600 leading-relaxed">Branches, leaves, dirt, fencing, old playsets â€” your yard back to its best.</p>
+      </div>
+
+      <div class="card p-7 group">
+        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+        </div>
+        <h3 class="text-xl font-bold mb-2">Construction debris</h3>
+        <p class="text-ink-600 leading-relaxed">Drywall, lumber, tile, flooring â€” small renos and tear-outs cleared in a single trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= HOW IT WORKS ============================= -->
+<section class="relative py-20 lg:py-28 bg-white overflow-hidden">
+  <div class="blob blob-red" style="width:500px;height:500px;top:-200px;left:-150px;"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="pill mb-4">How it works</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tightest">As easy as <span class="text-gradient">1 Â· 2 Â· gone.</span></h2>
+      <p class="mt-4 text-lg text-ink-600">Three steps. No phone tag. No surprise fees.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-8 text-center relative">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-white font-extrabold flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)]">1</div>
+        <div class="mt-4">
+          <h3 class="text-xl font-extrabold mb-3">Book in 60 seconds</h3>
+          <p class="text-ink-600">Pick a 2-hour window online or give us a holler. Same-day slots open daily.</p>
+        </div>
+      </div>
+      <div class="card p-8 text-center relative">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-white font-extrabold flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)]">2</div>
+        <div class="mt-4">
+          <h3 class="text-xl font-extrabold mb-3">We show up & quote</h3>
+          <p class="text-ink-600">Our crew rolls in, takes a look, and gives you an honest flat-rate price before lifting a finger.</p>
+        </div>
+      </div>
+      <div class="card p-8 text-center relative">
+        <div class="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-brand-600 to-brand-800 text-white font-extrabold flex items-center justify-center shadow-[0_0_20px_rgba(220,38,38,0.5)]">3</div>
+        <div class="mt-4">
+          <h3 class="text-xl font-extrabold mb-3">Junk gone, area swept</h3>
+          <p class="text-ink-600">We haul it all out, sweep up, and donate or recycle whatever we can. You wave goodbye.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= WHY US ============================= -->
+<section class="relative py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <div class="absolute -inset-8 bg-gradient-to-br from-brand-100 to-amber-100 rounded-[2rem] -z-10 blur-2xl opacity-60"></div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="card p-6">
+          <div class="text-4xl font-extrabold text-gradient">5,000+</div>
+          <div class="mt-2 font-semibold text-ink-700">Jobs hauled</div>
+          <div class="text-sm text-ink-500 mt-1">since 2019</div>
+        </div>
+        <div class="card p-6 mt-8">
+          <div class="text-4xl font-extrabold text-gradient">4.9â˜…</div>
+          <div class="mt-2 font-semibold text-ink-700">Google rating</div>
+          <div class="text-sm text-ink-500 mt-1">500+ reviews</div>
+        </div>
+        <div class="card p-6">
+          <div class="text-4xl font-extrabold text-gradient">80%</div>
+          <div class="mt-2 font-semibold text-ink-700">Diverted from landfill</div>
+          <div class="text-sm text-ink-500 mt-1">donated Â· recycled</div>
+        </div>
+        <div class="card p-6 mt-8">
+          <div class="text-4xl font-extrabold text-gradient">60 min</div>
+          <div class="mt-2 font-semibold text-ink-700">Average arrival</div>
+          <div class="text-sm text-ink-500 mt-1">within booking window</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span class="pill mb-4">Why Yeehaul</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tightest">A crew you'd <span class="text-gradient">trust at your kitchen table.</span></h2>
+      <p class="mt-5 text-lg text-ink-600 leading-relaxed">
+        We started Yeehaul to bring back something the industry forgot: showing up when we say,
+        charging what we quoted, and treating your home with the same respect we'd give our own.
+      </p>
+
+      <ul class="mt-8 space-y-4">
+        <li class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink-900">Background-checked crew</div>
+            <div class="text-ink-600">Every team member is uniformed, vetted, and trained.</div>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink-900">Upfront flat-rate pricing</div>
+            <div class="text-ink-600">You see the price before we lift a finger. No surprises, ever.</div>
+          </div>
+        </li>
+        <li class="flex gap-4">
+          <div class="w-9 h-9 rounded-full bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <div>
+            <div class="font-bold text-ink-900">We donate before we dump</div>
+            <div class="text-ink-600">Partnerships with local charities keep usable items out of the landfill.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="about.html" class="btn-ghost">Our story</a>
+        <a href="pricing.html" class="btn-brand">See pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= TESTIMONIALS ============================= -->
+<section class="py-20 lg:py-28 bg-white border-y border-ink-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="pill mb-4">Word on the street</span>
+      <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tightest">Real folks. <span class="text-gradient">Real reviews.</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <figure class="card p-7">
+        <div class="flex text-brand-600 mb-4" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <blockquote class="text-ink-700 leading-relaxed">
+          "Showed up exactly when they said, quoted me on the spot, and cleared my whole garage in under an hour. Polite, careful with my floors, swept up after. Worth every penny."
+        </blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-extrabold">SM</div>
+          <div>
+            <div class="font-bold text-ink-900">Sarah M.</div>
+            <div class="text-sm text-ink-500">Homeowner</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="card p-7">
+        <div class="flex text-brand-600 mb-4" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <blockquote class="text-ink-700 leading-relaxed">
+          "We renovated our restaurant kitchen and these guys had the old equipment out in two trips. Professional, friendly, and the price beat the dumpster rental we almost booked."
+        </blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-extrabold">DK</div>
+          <div>
+            <div class="font-bold text-ink-900">Diego K.</div>
+            <div class="text-sm text-ink-500">Restaurant owner</div>
+          </div>
+        </figcaption>
+      </figure>
+
+      <figure class="card p-7">
+        <div class="flex text-brand-600 mb-4" aria-label="5 out of 5 stars">â˜…â˜…â˜…â˜…â˜…</div>
+        <blockquote class="text-ink-700 leading-relaxed">
+          "After my dad passed I needed help clearing his place. The Yeehaul crew was kind, patient, and set aside things to donate. They turned an awful week into something manageable."
+        </blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-extrabold">RC</div>
+          <div>
+            <div class="font-bold text-ink-900">Renee C.</div>
+            <div class="text-sm text-ink-500">Estate cleanout</div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FINAL CTA ============================= -->
+<section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-br from-brand-800 via-brand-900 to-ink-900">
+  <div class="absolute inset-0 opacity-30" aria-hidden="true">
+    <div class="blob" style="width:500px;height:500px;top:-100px;left:-100px;background:radial-gradient(circle,#F87171 0%,transparent 70%);opacity:0.4;"></div>
+    <div class="blob" style="width:500px;height:500px;bottom:-100px;right:-100px;background:radial-gradient(circle,#FCD34D 0%,transparent 70%);opacity:0.25;"></div>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 backdrop-blur border border-white/15 text-sm font-bold uppercase tracking-wider mb-6">
+      <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
+      Same-day pickups still open
+    </span>
+    <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tightest text-white leading-[1.05]">
+      Ready to wave that junk <span class="font-script text-amber-300 block mt-2">goodbye?</span>
+    </h2>
+    <p class="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl mx-auto">
+      Book online in under a minute, or give us a holler. Either way â€” your space will be clear before you know it.
+    </p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a href="book.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-brand-700 font-extrabold text-base shadow-2xl hover:-translate-y-0.5 transition-transform">
+        Book Online
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+      </a>
+      <a href="tel:+15559334285" class="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/30 text-white font-bold hover:bg-white/10 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293a13.502 13.502 0 01-6.143-6.143l1.293-.97c.362-.271.527-.733.417-1.173L8.564 3.852A1.125 1.125 0 007.473 3H6.1A2.25 2.25 0 003.85 5.25c0 .504.054.997.158 1.474" /></svg>
+        (555) 933-4285
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="bg-ink-900 text-ink-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <a href="index.html" class="logo-chip"><img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" /></a>
+      <p class="mt-5 text-ink-400 leading-relaxed">Hauling off the haul since 2019. Licensed, insured, and locally owned.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Pages</h4>
+      <ul class="space-y-3">
+        <li><a href="index.html"    class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+        <li><a href="about.html"    class="hover:text-white transition-colors">About</a></li>
+        <li><a href="pricing.html"  class="hover:text-white transition-colors">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Hours</h4>
+      <ul class="space-y-2 text-ink-400">
+        <li>Mon â€“ Sat Â· 7am â€“ 7pm</li>
+        <li>Sunday Â· 9am â€“ 5pm</li>
+        <li>Holiday hours vary</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Get in touch</h4>
+      <ul class="space-y-3">
+        <li><a href="tel:+15559334285" class="hover:text-white transition-colors font-bold text-white">(555) 933-4285</a></li>
+        <li><a href="mailto:hello@yeehauljunk.com" class="hover:text-white transition-colors">hello@yeehauljunk.com</a></li>
+        <li class="text-ink-400">Serving your local area</li>
+      </ul>
+      <a href="book.html" class="btn-brand mt-5">Book Online</a>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-500">
+      <div>Â© <span id="year">2026</span> Yeehaul Junk Removal. All rights reserved.</div>
+      <div>Licensed Â· Insured Â· Locally owned</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav drawer
+  const t = document.getElementById('navToggle');
+  const d = document.getElementById('mobileDrawer');
+  if (t && d) {
+    t.addEventListener('click', () => {
+      const open = d.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  // Auto-update year
+  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+

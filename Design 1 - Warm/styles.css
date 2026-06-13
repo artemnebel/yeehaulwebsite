@@ -1,0 +1,194 @@
+/* ============================================================
+   YEEHAUL JUNK REMOVAL — shared custom styles
+   Extends Tailwind CDN with brand-specific touches.
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #FAFAF7;
+  color: #1C1917;
+}
+
+/* Script wordmark that echoes the logo */
+.font-script { font-family: 'Pacifico', cursive; }
+
+/* Tight headline tracking for impact */
+.tracking-tightest { letter-spacing: -0.03em; }
+
+/* ---------- Brand button ---------- */
+.btn-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+  box-shadow: 0 6px 18px -4px rgba(220, 38, 38, 0.45);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  white-space: nowrap;
+}
+.btn-brand:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(220, 38, 38, 0.55);
+  filter: brightness(1.05);
+}
+.btn-brand:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #DC2626;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1C1917;
+  background: #fff;
+  border: 1px solid #E7E5E4;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.btn-ghost:hover {
+  border-color: #1C1917;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(28, 25, 23, 0.25);
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #fff;
+  border: 1px solid #F1ECE8;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px -2px rgba(28, 25, 23, 0.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px -10px rgba(220, 38, 38, 0.18),
+              0 8px 12px -6px rgba(28, 25, 23, 0.08);
+  border-color: #FCA5A5;
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+  background: linear-gradient(135deg, #DC2626 0%, #7F1D1D 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ---------- Atmospheric blob ---------- */
+.blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+.blob-red    { background: radial-gradient(circle, #FCA5A5 0%, transparent 70%); }
+.blob-amber  { background: radial-gradient(circle, #FCD34D 0%, transparent 70%); }
+.blob-dark   { background: radial-gradient(circle, #44403C 0%, transparent 70%); opacity: 0.18; }
+
+/* ---------- Section dividers (rope-style for that country touch) ---------- */
+.rope-divider {
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #DC2626 0 8px,
+    transparent 8px 14px
+  );
+  border-radius: 2px;
+}
+
+/* ---------- Logo chip ---------- */
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+}
+.logo-chip img {
+  height: 44px;
+  width: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px -2px rgba(220, 38, 38, 0.45);
+}
+
+/* ---------- Nav link ---------- */
+.nav-link {
+  position: relative;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #44403C;
+  padding: 0.5rem 0.25rem;
+  transition: color .2s ease;
+}
+.nav-link:hover { color: #DC2626; }
+.nav-link.active { color: #1C1917; }
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0.25rem; right: 0.25rem; bottom: 0;
+  height: 2px;
+  background: #DC2626;
+  border-radius: 2px;
+}
+
+/* ---------- Tilt utility (subtle dimensional depth) ---------- */
+.tilt-soft {
+  transform: perspective(2000px) rotateX(4deg) rotateY(-8deg);
+  transition: transform .4s ease;
+}
+.tilt-soft:hover {
+  transform: perspective(2000px) rotateX(2deg) rotateY(-4deg) translateY(-4px);
+}
+
+/* ---------- Pill ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  background: #FEE2E2;
+  color: #991B1B;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* ---------- Mobile nav drawer ---------- */
+.mobile-drawer {
+  display: none;
+}
+.mobile-drawer.open {
+  display: block;
+}
+
+/* ---------- Accordion (FAQ) ---------- */
+details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .chev { transform: rotate(180deg); }
+.chev { transition: transform .2s ease; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

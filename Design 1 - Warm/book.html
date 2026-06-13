@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Online â€” Yeehaul Junk Removal</title>
+<meta name="description" content="Book your junk removal pickup in under 60 seconds. Same-day windows available." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      brand: { 50:'#FEF2F2',100:'#FEE2E2',200:'#FECACA',300:'#FCA5A5',400:'#F87171',500:'#EF4444',600:'#DC2626',700:'#B91C1C',800:'#991B1B',900:'#7F1D1D' },
+      ink:   { 50:'#FAFAF7',100:'#F5F5F4',200:'#E7E5E4',300:'#D6D3D1',400:'#A8A29E',500:'#78716C',600:'#57534E',700:'#44403C',800:'#292524',900:'#1C1917' }
+    },
+    fontFamily: { sans:['"Plus Jakarta Sans"','system-ui','sans-serif'], script:['Pacifico','cursive'] }
+  } }
+}
+</script>
+</head>
+<body class="bg-ink-50 text-ink-900">
+
+<!-- ============================= NAV ============================= -->
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-ink-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <a href="index.html" class="logo-chip" aria-label="Yeehaul Junk Removal home">
+      <img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" />
+    </a>
+    <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
+      <a href="index.html"    class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="pricing.html"  class="nav-link">Pricing</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-3">
+      <a href="tel:+15559334285" class="flex items-center gap-2 px-4 py-2 rounded-full text-ink-900 font-bold hover:text-brand-600 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293a13.502 13.502 0 01-6.143-6.143l1.293-.97c.362-.271.527-.733.417-1.173L8.564 3.852A1.125 1.125 0 007.473 3H6.1A2.25 2.25 0 003.85 5.25c0 .504.054.997.158 1.474" /></svg>
+        <span>(555) 933-4285</span>
+      </a>
+      <a href="book.html" class="btn-brand">Book Online
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5" /></svg>
+      </a>
+    </div>
+    <button id="navToggle" class="lg:hidden p-2 rounded-lg hover:bg-ink-100" aria-label="Open menu" aria-expanded="false">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+    </button>
+  </div>
+  <div id="mobileDrawer" class="mobile-drawer lg:hidden border-t border-ink-200 bg-white">
+    <div class="px-4 py-4 flex flex-col gap-1">
+      <a href="index.html"    class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">Home</a>
+      <a href="services.html" class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">Services</a>
+      <a href="about.html"    class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">About</a>
+      <a href="pricing.html"  class="px-3 py-3 rounded-lg font-medium text-ink-700 hover:bg-ink-100">Pricing</a>
+      <div class="h-px bg-ink-200 my-2"></div>
+      <a href="tel:+15559334285" class="px-3 py-3 rounded-lg font-bold text-ink-900">ðŸ“ž (555) 933-4285</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= BOOKING FORM ============================= -->
+<section class="relative overflow-hidden py-16 lg:py-20">
+  <div class="blob blob-red"   style="width:480px;height:480px;top:-160px;right:-100px;"></div>
+  <div class="blob blob-amber" style="width:360px;height:360px;bottom:-120px;left:-80px;"></div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 grid lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <span class="pill mb-5">Book online</span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tightest leading-[1.05]">
+        Pick a window. <span class="text-gradient">We'll handle the rest.</span>
+      </h1>
+      <p class="mt-5 text-lg text-ink-600 leading-relaxed">
+        Same-day pickups available. We'll confirm by text within 15 minutes and call you 30 minutes before arrival.
+      </p>
+
+      <div class="mt-8 space-y-3">
+        <div class="flex items-center gap-3 text-ink-700">
+          <div class="w-9 h-9 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <span>No deposit required</span>
+        </div>
+        <div class="flex items-center gap-3 text-ink-700">
+          <div class="w-9 h-9 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <span>Free on-site quote</span>
+        </div>
+        <div class="flex items-center gap-3 text-ink-700">
+          <div class="w-9 h-9 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+          </div>
+          <span>Cancel anytime, no fee</span>
+        </div>
+      </div>
+
+      <div class="mt-8 p-5 rounded-2xl bg-white border border-ink-200">
+        <div class="text-sm font-bold uppercase tracking-wider text-ink-500 mb-2">Prefer to talk?</div>
+        <a href="tel:+15559334285" class="text-2xl font-extrabold text-ink-900 hover:text-brand-600 transition-colors">(555) 933-4285</a>
+        <div class="text-sm text-ink-500 mt-1">Real person, 7am â€“ 7pm.</div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-3">
+      <form id="bookForm" class="card p-7 sm:p-8 space-y-5" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-bold text-ink-700 mb-1.5">Your name</label>
+            <input id="name" name="name" type="text" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" placeholder="Jane Hauler" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-bold text-ink-700 mb-1.5">Phone</label>
+            <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" placeholder="(555) 555-1212" />
+          </div>
+        </div>
+
+        <div>
+          <label for="address" class="block text-sm font-bold text-ink-700 mb-1.5">Pickup address</label>
+          <input id="address" name="address" type="text" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" placeholder="123 Main St, your city" />
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="date" class="block text-sm font-bold text-ink-700 mb-1.5">Preferred date</label>
+            <input id="date" name="date" type="date" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" />
+          </div>
+          <div>
+            <label for="window" class="block text-sm font-bold text-ink-700 mb-1.5">Preferred window</label>
+            <select id="window" name="window" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition">
+              <option value="">Choose a windowâ€¦</option>
+              <option>7am â€“ 9am</option>
+              <option>9am â€“ 11am</option>
+              <option>11am â€“ 1pm</option>
+              <option>1pm â€“ 3pm</option>
+              <option>3pm â€“ 5pm</option>
+              <option>5pm â€“ 7pm</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="size" class="block text-sm font-bold text-ink-700 mb-1.5">Estimated load size</label>
+          <select id="size" name="size" required class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition">
+            <option value="">How much junk are we lookin' at?</option>
+            <option>A few items / single piece</option>
+            <option>1/8 truck</option>
+            <option>1/4 truck</option>
+            <option>1/2 truck</option>
+            <option>3/4 truck</option>
+            <option>Full truck</option>
+            <option>Not sure â€” please advise</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="details" class="block text-sm font-bold text-ink-700 mb-1.5">Tell us about the job</label>
+          <textarea id="details" name="details" rows="4" class="w-full rounded-lg border border-ink-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" placeholder="What needs hauling? Stairs? Anything we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="btn-brand w-full text-base py-4">
+          Request Pickup
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+        </button>
+
+        <p class="text-xs text-ink-500 text-center">By submitting, you agree we may contact you about your booking. No spam, ever.</p>
+      </form>
+
+      <!-- Success state (hidden by default) -->
+      <div id="bookSuccess" class="hidden card p-10 text-center">
+        <div class="w-16 h-16 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>
+        </div>
+        <h2 class="mt-5 text-3xl font-extrabold tracking-tightest">You're booked! <span class="font-script text-brand-600">Yeehaw.</span></h2>
+        <p class="mt-3 text-ink-600 max-w-md mx-auto">We'll text you a confirmation in the next 15 minutes. Got questions in the meantime? <a href="tel:+15559334285" class="font-bold text-brand-600 hover:underline">(555) 933-4285</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="bg-ink-900 text-ink-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <a href="index.html" class="logo-chip"><img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" /></a>
+      <p class="mt-5 text-ink-400 leading-relaxed">Hauling off the haul since 2019. Licensed, insured, and locally owned.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Pages</h4>
+      <ul class="space-y-3">
+        <li><a href="index.html"    class="hover:text-white transition-colors">Home</a></li>
+        <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+        <li><a href="about.html"    class="hover:text-white transition-colors">About</a></li>
+        <li><a href="pricing.html"  class="hover:text-white transition-colors">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Hours</h4>
+      <ul class="space-y-2 text-ink-400">
+        <li>Mon â€“ Sat Â· 7am â€“ 7pm</li>
+        <li>Sunday Â· 9am â€“ 5pm</li>
+        <li>Holiday hours vary</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-bold mb-4">Get in touch</h4>
+      <ul class="space-y-3">
+        <li><a href="tel:+15559334285" class="hover:text-white transition-colors font-bold text-white">(555) 933-4285</a></li>
+        <li><a href="mailto:hello@yeehauljunk.com" class="hover:text-white transition-colors">hello@yeehauljunk.com</a></li>
+        <li class="text-ink-400">Serving your local area</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-ink-500">
+      <div>Â© <span id="year">2026</span> Yeehaul Junk Removal. All rights reserved.</div>
+      <div>Licensed Â· Insured Â· Locally owned</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const t = document.getElementById('navToggle');
+  const d = document.getElementById('mobileDrawer');
+  if (t && d) { t.addEventListener('click', () => { const o = d.classList.toggle('open'); t.setAttribute('aria-expanded', o ? 'true' : 'false'); }); }
+  const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
+
+  // Stub submit handler â€” front-end only for now
+  const form = document.getElementById('bookForm');
+  const success = document.getElementById('bookSuccess');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  }
+</script>
+</body>
+</html>
+

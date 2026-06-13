@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yeehaul Junk Removal — Design Concepts</title>
+<meta name="description" content="Three design concepts for Yeehaul Junk Removal. Click any to preview the full site." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- All three designs' fonts so previews render accurately -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;700;800&family=Pacifico&family=Anton&family=Space+Mono:wght@700&family=Alfa+Slab+One&family=Bebas+Neue&family=Bitter:wght@400;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0F1115;
+    color: #E5E7EB;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  a { text-decoration: none; color: inherit; }
+
+  /* ============ TOP STRIP ============ */
+  .topbar {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(15,17,21,0.85);
+    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .topbar-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .brand-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .brand-chip img {
+    height: 36px; width: auto; border-radius: 6px;
+    box-shadow: 0 4px 16px -2px rgba(220,38,38,0.4);
+  }
+  .brand-chip span {
+    font-weight: 800; letter-spacing: -0.01em; color: #fff;
+  }
+  .brand-chip small {
+    color: #9CA3AF; font-weight: 500; font-size: 12px;
+    margin-left: 8px; padding-left: 12px; border-left: 1px solid rgba(255,255,255,0.15);
+  }
+  .topbar-meta {
+    font-size: 12px; color: #6B7280; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1280px; margin: 0 auto;
+    padding: 80px 24px 56px;
+    text-align: center;
+    position: relative;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(220,38,38,0.18) 0%, transparent 40%),
+      radial-gradient(circle at 70% 80%, rgba(212,160,23,0.10) 0%, transparent 40%);
+    pointer-events: none; z-index: -1;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    background: rgba(220,38,38,0.12);
+    color: #FCA5A5;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(220,38,38,0.25);
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #EF4444; }
+  h1 {
+    margin-top: 24px;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .h1-accent {
+    background: linear-gradient(135deg, #F87171 0%, #DC2626 50%, #D4A017 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p {
+    margin-top: 20px;
+    font-size: 1.125rem;
+    color: #9CA3AF;
+    max-width: 640px; margin-left: auto; margin-right: auto;
+    line-height: 1.6;
+  }
+
+  /* ============ GRID ============ */
+  .grid {
+    max-width: 1320px; margin: 0 auto;
+    padding: 0 24px 96px;
+    display: grid;
+    gap: 32px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card {
+    background: #161A22;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    display: flex; flex-direction: column;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(220,38,38,0.35);
+    box-shadow: 0 20px 50px -10px rgba(220,38,38,0.25);
+  }
+
+  /* ============ CARD INFO ============ */
+  .card-info { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+  .design-num {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #9CA3AF;
+  }
+  .design-name {
+    font-size: 1.5rem; font-weight: 800;
+    letter-spacing: -0.01em; color: #fff;
+    margin-top: 4px;
+  }
+  .design-tag {
+    font-size: 0.875rem; color: #FCA5A5;
+    font-weight: 600; margin-top: 6px;
+  }
+  .design-desc {
+    margin-top: 16px;
+    color: #9CA3AF; font-size: 0.95rem;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .feature-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-top: 16px;
+  }
+  .feature-tags span {
+    font-size: 11px; font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    background: rgba(255,255,255,0.05);
+    color: #D1D5DB;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .view-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 700; font-size: 0.95rem;
+    background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
+    color: #fff;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    box-shadow: 0 8px 20px -8px rgba(220,38,38,0.6);
+  }
+  .view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -6px rgba(220,38,38,0.7);
+    filter: brightness(1.05);
+  }
+  .view-btn svg { transition: transform .2s ease; }
+  .view-btn:hover svg { transform: translateX(3px); }
+
+  /* ============ MINI-MOCKUP — D1 (Warm) ============ */
+  .mock {
+    height: 380px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .mock-d1 {
+    background: #FAFAF7;
+    color: #1C1917;
+    padding: 28px 24px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .mock-d1::before {
+    content:''; position:absolute;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, #FCA5A5 0%, transparent 70%);
+    filter: blur(40px); opacity: 0.6;
+    top: -80px; right: -60px;
+  }
+  .mock-d1::after {
+    content:''; position:absolute;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, #FCD34D 0%, transparent 70%);
+    filter: blur(40px); opacity: 0.4;
+    bottom: -60px; left: -40px;
+  }
+  .mock-d1 .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #FEE2E2; color: #991B1B;
+    padding: 5px 12px; border-radius: 9999px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+  .mock-d1 .pill::before { content:''; width: 5px; height: 5px; border-radius: 50%; background: #DC2626; }
+  .mock-d1 h3 {
+    font-size: 2.25rem; font-weight: 800;
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin-top: 14px; position: relative; z-index: 1;
+  }
+  .mock-d1 .grad {
+    background: linear-gradient(135deg, #DC2626 0%, #7F1D1D 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .mock-d1 .script {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.75rem; color: #DC2626;
+    margin-top: 8px; line-height: 1;
+    position: relative; z-index: 1;
+  }
+  .mock-d1 .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 18px;
+    padding: 10px 18px; border-radius: 9999px;
+    background: linear-gradient(135deg, #DC2626, #B91C1C);
+    color: #fff; font-weight: 700; font-size: 0.875rem;
+    box-shadow: 0 6px 14px -4px rgba(220,38,38,0.5);
+    position: relative; z-index: 1;
+  }
+  .mock-d1 .card-mini {
+    position: absolute; bottom: 16px; right: 16px;
+    background: #fff; border-radius: 10px;
+    padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 6px 16px -4px rgba(28,25,23,0.15);
+    font-size: 11px;
+  }
+  .mock-d1 .card-mini-icon {
+    width: 24px; height: 24px; border-radius: 6px;
+    background: #DCFCE7; color: #16A34A;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+  }
+  .mock-d1 .card-mini strong { display: block; color: #0F172A; font-weight: 800; }
+  .mock-d1 .card-mini em { font-style: normal; color: #64748B; font-size: 10px; }
+
+  /* ============ MINI-MOCKUP — D2 (Bold) ============ */
+  .mock-d2 {
+    background: #fff;
+    color: #0A0A0A;
+    padding: 28px 24px 0;
+    font-family: 'Inter', sans-serif;
+    display: flex; flex-direction: column;
+  }
+  .mock-d2 .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #DC2626;
+  }
+  .mock-d2 h3 {
+    font-family: 'Anton', sans-serif;
+    font-size: 3rem; line-height: 0.9;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+    margin-top: 12px;
+  }
+  .mock-d2 .red { color: #DC2626; }
+  .mock-d2 .btn-row { display: flex; gap: 10px; margin-top: 18px; }
+  .mock-d2 .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 16px;
+    background: #DC2626; color: #fff;
+    font-weight: 800; font-size: 12px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    border: 2px solid #0A0A0A;
+    box-shadow: 4px 4px 0 #0A0A0A;
+  }
+  .mock-d2 .btn-out {
+    background: #fff; color: #0A0A0A;
+  }
+  .mock-d2 .marquee-strip {
+    margin-top: auto;
+    background: #DC2626;
+    color: #fff;
+    border-top: 2px solid #0A0A0A;
+    border-bottom: 2px solid #0A0A0A;
+    font-family: 'Anton', sans-serif;
+    font-size: 0.95rem; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-left: -24px; margin-right: -24px;
+    text-align: center;
+  }
+  .mock-d2 .marquee-strip span { margin: 0 14px; }
+  .mock-d2 .marquee-strip .star { color: #0A0A0A; }
+  .mock-d2 .black-strip {
+    background: #0A0A0A;
+    margin-left: -24px; margin-right: -24px;
+    padding: 16px 24px;
+    color: #fff;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .mock-d2 .black-strip strong { font-family: 'Anton', sans-serif; font-size: 1.5rem; letter-spacing: 0; }
+
+  /* ============ MINI-MOCKUP — D3 (Vintage) ============ */
+  .mock-d3 {
+    background: #F5EBD9;
+    color: #2A1810;
+    padding: 28px 24px;
+    font-family: 'Bitter', serif;
+    text-align: center;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .mock-d3 .ornament {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .mock-d3 .ornament::before, .mock-d3 .ornament::after {
+    content:''; flex: 1; height: 1.5px; background: #2A1810; max-width: 60px;
+  }
+  .mock-d3 .ornament-mark {
+    font-family: serif; font-size: 0.85rem; color: #B91C1C;
+    letter-spacing: 0.3em;
+  }
+  .mock-d3 .kicker {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.3em;
+    color: #B91C1C; margin-top: 8px;
+  }
+  .mock-d3 h3 {
+    font-family: 'Alfa Slab One', serif;
+    font-size: 2rem; line-height: 1;
+    text-transform: uppercase; margin-top: 10px;
+    color: #2A1810;
+  }
+  .mock-d3 .red { color: #B91C1C; }
+  .mock-d3 .script {
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: #B91C1C;
+    margin-top: 4px; line-height: 1;
+  }
+  .mock-d3 .stamps {
+    display: flex; justify-content: center; gap: 16px; margin-top: 12px;
+  }
+  .mock-d3 .stamp {
+    width: 62px; height: 62px; border-radius: 50%;
+    border: 2px solid #B91C1C;
+    display: flex; align-items: center; justify-content: center;
+    color: #B91C1C; padding: 4px;
+    position: relative;
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8px; letter-spacing: 0.1em; line-height: 1.1;
+  }
+  .mock-d3 .stamp::before {
+    content: ''; position: absolute; inset: 3px;
+    border: 1px solid #B91C1C; border-radius: 50%;
+  }
+  .mock-d3 .stamp strong { font-size: 11px; display: block; }
+  .mock-d3 .stamp.s2 { transform: rotate(6deg); border-color: #2A1810; color: #2A1810; }
+  .mock-d3 .stamp.s2::before { border-color: #2A1810; }
+  .mock-d3 .stamp.s1 { transform: rotate(-6deg); }
+  .mock-d3 .btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 10px 18px;
+    background: #B91C1C; color: #FAF3E3;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 2px solid #FAF3E3;
+    outline: 2.5px solid #2A1810;
+    margin-top: auto;
+    align-self: center;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    max-width: 1280px; margin: 0 auto;
+    padding: 32px 24px 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; flex-wrap: wrap; gap: 16px;
+    justify-content: space-between; align-items: center;
+    font-size: 12px; color: #6B7280;
+    letter-spacing: 0.04em;
+  }
+  footer .hint {
+    color: #9CA3AF;
+  }
+  footer code {
+    background: rgba(255,255,255,0.06);
+    padding: 2px 8px; border-radius: 4px;
+    font-family: 'Space Mono', monospace;
+    color: #FCA5A5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== TOPBAR ============== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand-chip" href="#">
+      <img src="Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" />
+      <span>Yeehaul Junk Removal</span>
+      <small>Design Concepts</small>
+    </a>
+    <div class="topbar-meta">Client Review · Pick Your Favorite</div>
+  </div>
+</header>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <span class="eyebrow"><span class="dot"></span> Three concepts to choose from</span>
+  <h1>
+    One brand. <span class="h1-accent">Three directions.</span>
+  </h1>
+  <p>
+    Each concept is a complete five-page site &mdash; Home, Services, About, Pricing, and Book Online &mdash; built around the same content but with a distinct personality. Click any preview to explore the live design.
+  </p>
+</section>
+
+<!-- ============== GRID ============== -->
+<main class="grid">
+
+  <!-- =========== DESIGN 1 — WARM =========== -->
+  <article class="card">
+    <div class="mock mock-d1">
+      <span class="pill">Same-day pickup</span>
+      <h3>Junk gone <span class="grad">in a flash.</span></h3>
+      <div class="script">Yeehaw!</div>
+      <a class="btn">Book Online →</a>
+      <div class="card-mini">
+        <div class="card-mini-icon">✓</div>
+        <div>
+          <strong>Fully insured</strong>
+          <em>$1M coverage</em>
+        </div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="design-num">Design № 01</div>
+      <div class="design-name">Warm &amp; Friendly</div>
+      <div class="design-tag">Modern SaaS · Approachable</div>
+      <p class="design-desc">
+        Soft cream background, gradient red text, blurred color orbs, rounded cards that lift on hover, and a script accent that nods to the logo. Polished and trustworthy without feeling corporate.
+      </p>
+      <div class="feature-tags">
+        <span>Gradient text</span>
+        <span>Soft shadows</span>
+        <span>Pacifico script</span>
+        <span>Plus Jakarta Sans</span>
+      </div>
+      <a class="view-btn" href="Design%201%20-%20Warm/index.html">
+        View Design 1
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- =========== DESIGN 2 — BOLD =========== -->
+  <article class="card">
+    <div class="mock mock-d2">
+      <span class="kicker">/ 01 — Yeehaul</span>
+      <h3>Junk gone.<br/><span class="red">Period.</span></h3>
+      <div class="btn-row">
+        <a class="btn">Book Online →</a>
+        <a class="btn btn-out">Call</a>
+      </div>
+      <div class="black-strip">
+        <span>★ 4.9</span>
+        <strong>5K+</strong>
+        <span>60 MIN</span>
+      </div>
+      <div class="marquee-strip">
+        <span>SAME-DAY</span><span class="star">★</span>
+        <span>FLAT-RATE</span><span class="star">★</span>
+        <span>LICENSED</span>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="design-num">Design № 02</div>
+      <div class="design-name">Bold &amp; Industrial</div>
+      <div class="design-tag">Brutalist · No-Nonsense</div>
+      <p class="design-desc">
+        Pure black, white, and brand red. Condensed display type, hard-edge cards with offset shadows, a scrolling red marquee, and big numbered sections. Confident work-truck energy.
+      </p>
+      <div class="feature-tags">
+        <span>Hard edges</span>
+        <span>Offset shadows</span>
+        <span>Anton display</span>
+        <span>Red marquee</span>
+      </div>
+      <a class="view-btn" href="Design%202%20-%20Bold/index.html">
+        View Design 2
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+      </a>
+    </div>
+  </article>
+
+  <!-- =========== DESIGN 3 — VINTAGE =========== -->
+  <article class="card">
+    <div class="mock mock-d3">
+      <div>
+        <div class="ornament"><span class="ornament-mark">⋆ ★ ⋆</span></div>
+        <div class="kicker">★ Established 2019 ★</div>
+        <h3>Haulin' <span class="red">junk</span></h3>
+        <div class="script">the honest way</div>
+        <div class="stamps">
+          <div class="stamp s1">Licensed<strong>&amp; Insured</strong></div>
+          <div class="stamp s2">Locally<strong>Owned</strong></div>
+        </div>
+      </div>
+      <a class="btn">Book Online</a>
+    </div>
+    <div class="card-info">
+      <div class="design-num">Design № 03</div>
+      <div class="design-name">Vintage Americana</div>
+      <div class="design-tag">Heritage Signage · Trustworthy</div>
+      <p class="design-desc">
+        Parchment cream, deep red, navy and gold. Chunky slab serif headlines, hand-script accents, double-bordered "certificate" cards, ornamental dividers and tilted stamp badges. Feels like a 1950s service-company poster.
+      </p>
+      <div class="feature-tags">
+        <span>Double borders</span>
+        <span>Stamp badges</span>
+        <span>Alfa Slab One</span>
+        <span>Caveat script</span>
+      </div>
+      <a class="view-btn" href="Design%203%20-%20Vintage/index.html">
+        View Design 3
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5l6 6m0 0l-6 6m6-6H4.5"/></svg>
+      </a>
+    </div>
+  </article>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div>© <span id="year">2026</span> Yeehaul Junk Removal &middot; Design Concepts</div>
+  <div class="hint">Tip &mdash; each design has its own <code>index.html</code> inside its folder.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

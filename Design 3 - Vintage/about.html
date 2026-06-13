@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Yeehaul Junk Removal</title>
+<meta name="description" content="A locally owned junk removal crew. Meet the folks behind Yeehaul." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bebas+Neue&family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { cream:{50:'#FAF3E3',100:'#F5EBD9',200:'#EADBB7'}, ink:'#2A1810', brown:'#7C5C44', red:{600:'#B91C1C',700:'#991B1B',800:'#7F1D1D'}, navy:'#1E3A5F', gold:'#D4A017' },
+  fontFamily: { serif:['Bitter','Georgia','serif'], display:['"Alfa Slab One"','serif'], condensed:['"Bebas Neue"','sans-serif'], script:['Caveat','cursive'] }
+} } }
+</script>
+</head>
+<body>
+
+<div class="letterhead"><div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2"><div>★ Established 2019 · Family Owned &amp; Operated · Licensed &amp; Insured ★</div><div class="hidden sm:block">Serving your neighborhood since day one</div></div></div>
+
+<header class="nav-wrap sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-4">
+    <a href="index.html" class="logo-frame"><img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" /></a>
+    <nav class="hidden lg:flex items-center gap-10">
+      <a href="index.html"    class="nav-vintage">Home</a>
+      <a href="services.html" class="nav-vintage">Services</a>
+      <a href="about.html"    class="nav-vintage active">About</a>
+      <a href="pricing.html"  class="nav-vintage">Pricing</a>
+    </nav>
+    <div class="hidden md:flex items-center gap-4">
+      <a href="tel:+15559334285" class="hidden lg:flex items-center gap-2 font-condensed text-lg tracking-widest text-ink hover:text-red-600 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293a13.502 13.502 0 01-6.143-6.143l1.293-.97c.362-.271.527-.733.417-1.173L8.564 3.852A1.125 1.125 0 007.473 3H6.1A2.25 2.25 0 003.85 5.25c0 .504.054.997.158 1.474" /></svg>
+        (555) 933-4285
+      </a>
+      <a href="book.html" class="btn-vintage">Book Online</a>
+    </div>
+    <button id="navToggle" class="lg:hidden p-2 border-2 border-ink" aria-label="Open menu"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg></button>
+  </div>
+  <div id="mobileDrawer" class="mobile-drawer lg:hidden bg-cream-100 border-t-2 border-ink">
+    <div class="px-4 py-4 flex flex-col gap-2">
+      <a href="index.html"    class="nav-vintage px-2 py-2">Home</a>
+      <a href="services.html" class="nav-vintage px-2 py-2">Services</a>
+      <a href="about.html"    class="nav-vintage active px-2 py-2">About</a>
+      <a href="pricing.html"  class="nav-vintage px-2 py-2">Pricing</a>
+      <div class="h-px bg-ink my-2"></div>
+      <a href="tel:+15559334285" class="font-condensed text-lg tracking-widest text-ink px-2">☎ (555) 933-4285</a>
+      <a href="book.html" class="btn-vintage mt-2">Book Online</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================== HERO ================== -->
+<section>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-12 lg:pt-20 lg:pb-16 text-center">
+    <div class="ornament"><span class="ornament-mark">⋆ ★ ⋆</span></div>
+    <p class="kicker">★ About Us ★</p>
+    <h1 class="font-display mt-4 leading-[0.95] text-[clamp(3rem,9vw,7rem)] uppercase text-ink">
+      Hauling done <span class="text-red-600">honest.</span>
+    </h1>
+    <p class="font-script text-3xl text-red-600 mt-4">Howdy, neighbor.</p>
+    <div class="ornament mt-6"><span class="ornament-mark">⋆ ⋆ ⋆</span></div>
+  </div>
+</section>
+
+<!-- ================== FOUNDER'S LETTER ================== -->
+<section class="pb-20 lg:pb-28">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="frame">
+      <p class="kicker">★ A letter from our founder ★</p>
+      <h2 class="font-display text-3xl sm:text-4xl uppercase mt-2 mb-6 leading-tight">Started in one truck. Same code, every job.</h2>
+
+      <div class="space-y-5 text-lg text-ink/85 leading-relaxed font-serif">
+        <p>Yeehaul started in 2019 when I helped a neighbor clear out an old garage and realized just how hard it was to find an honest, friendly junk removal crew. Big chains were expensive and impersonal. Cheap guys disappeared after the deposit.</p>
+        <p>So I built the company I wished existed. One truck, one promise:</p>
+      </div>
+
+      <blockquote class="my-7 pl-6 border-l-4 border-red-600 font-script text-3xl text-red-600 leading-tight">
+        "Show up on time. Charge what we quoted. Leave the place better than we found it."
+      </blockquote>
+
+      <div class="space-y-5 text-lg text-ink/85 leading-relaxed font-serif">
+        <p>Five years and thousands of jobs later, that promise hasn't changed. Our crews keep neighborhoods clear, partner with local charities to donate every reusable item, and recycle more than 80% of what we collect.</p>
+        <p>Junk removal might sound like a small thing, but when your garage finally has space again — or a loved one's estate is handled with care — it isn't small at all.</p>
+      </div>
+
+      <div class="mt-8 pt-6 border-t-2 border-double border-ink/40">
+        <p class="font-script text-3xl text-red-600 leading-none">Jake T.</p>
+        <p class="kicker mt-2">Founder · Lead Hauler</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== VALUES ================== -->
+<section class="bg-cream-light border-y-4 border-double border-ink py-20 lg:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <p class="kicker">★ Four values ★</p>
+      <h2 class="font-display text-4xl sm:text-6xl mt-3 uppercase text-ink leading-[0.95]">No exceptions. <span class="text-red-600">No excuses.</span></h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="frame text-center">
+        <div class="flex justify-center mb-4"><span class="numeral">I</span></div>
+        <h3 class="font-display text-xl uppercase">Honest pricing</h3>
+        <div class="ornament"><span class="ornament-mark">⋆</span></div>
+        <p class="text-ink/80 text-sm">Quote we give is the quote you pay. No upsells, no fine print.</p>
+      </div>
+      <div class="frame text-center">
+        <div class="flex justify-center mb-4"><span class="numeral">II</span></div>
+        <h3 class="font-display text-xl uppercase">On time, every time</h3>
+        <div class="ornament"><span class="ornament-mark">⋆</span></div>
+        <p class="text-ink/80 text-sm">Show up in the window we promised. If delayed, you hear from us first.</p>
+      </div>
+      <div class="frame text-center">
+        <div class="flex justify-center mb-4"><span class="numeral">III</span></div>
+        <h3 class="font-display text-xl uppercase">Care for your home</h3>
+        <div class="ornament"><span class="ornament-mark">⋆</span></div>
+        <p class="text-ink/80 text-sm">Floor coverings, careful corners, broom sweep on the way out.</p>
+      </div>
+      <div class="frame text-center">
+        <div class="flex justify-center mb-4"><span class="numeral">IV</span></div>
+        <h3 class="font-display text-xl uppercase">Donate before dump</h3>
+        <div class="ornament"><span class="ornament-mark">⋆</span></div>
+        <p class="text-ink/80 text-sm">Local charities first. Usable items get new homes, not landfills.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== STATS BAND ================== -->
+<section class="bg-ink py-12 border-y-4 border-double border-gold">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    <div>
+      <div class="font-display text-5xl text-gold leading-none">5,000+</div>
+      <div class="kicker kicker-cream mt-3">Jobs Hauled</div>
+    </div>
+    <div>
+      <div class="font-display text-5xl text-gold leading-none">4.9★</div>
+      <div class="kicker kicker-cream mt-3">Google Rating</div>
+    </div>
+    <div>
+      <div class="font-display text-5xl text-gold leading-none">80%</div>
+      <div class="kicker kicker-cream mt-3">Out of Landfill</div>
+    </div>
+    <div>
+      <div class="font-display text-5xl text-gold leading-none">6 yrs</div>
+      <div class="kicker kicker-cream mt-3">Locally Owned</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== TEAM ================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <p class="kicker">★ The crew ★</p>
+      <h2 class="font-display text-4xl sm:text-6xl mt-3 uppercase text-ink leading-[0.95]">Meet the folks <span class="text-red-600">doing the hauling.</span></h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+      <div class="frame text-center">
+        <div class="w-28 h-28 mx-auto bg-red-600 text-cream-50 border-2 border-ink rounded-full flex items-center justify-center font-display text-4xl" style="outline:3px solid #B91C1C;outline-offset:3px;">JT</div>
+        <h3 class="font-display text-2xl uppercase mt-5">Jake T.</h3>
+        <p class="kicker mt-1">Founder · Lead Hauler</p>
+        <p class="font-script text-2xl text-red-600 mt-3 leading-tight">"Still on every truck once a week."</p>
+        <p class="mt-3 text-ink/80 text-sm">Started with one truck and a handshake. Keeps us honest.</p>
+      </div>
+      <div class="frame text-center">
+        <div class="w-28 h-28 mx-auto bg-navy text-cream-50 border-2 border-ink rounded-full flex items-center justify-center font-display text-4xl" style="outline:3px solid #1E3A5F;outline-offset:3px;">MR</div>
+        <h3 class="font-display text-2xl uppercase mt-5">Maria R.</h3>
+        <p class="kicker mt-1">Operations Manager</p>
+        <p class="font-script text-2xl text-red-600 mt-3 leading-tight">"A real person on the phone."</p>
+        <p class="mt-3 text-ink/80 text-sm">The reason your crew shows up on time. Keeps the gears turning.</p>
+      </div>
+      <div class="frame text-center">
+        <div class="w-28 h-28 mx-auto bg-ink text-cream-50 border-2 border-ink rounded-full flex items-center justify-center font-display text-4xl" style="outline:3px solid #2A1810;outline-offset:3px;">DB</div>
+        <h3 class="font-display text-2xl uppercase mt-5">Dre B.</h3>
+        <p class="kicker mt-1">Crew Lead</p>
+        <p class="font-script text-2xl text-red-600 mt-3 leading-tight">"The big-job guy."</p>
+        <p class="mt-3 text-ink/80 text-sm">Hot tubs, sheds, demolitions — Dre's seen it all and lifted half of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== SERVICE AREA ================== -->
+<section class="bg-navy py-20 lg:py-24 border-y-4 border-double border-gold">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+    <p class="kicker text-gold">★ Service area ★</p>
+    <h2 class="font-display text-4xl sm:text-5xl mt-3 uppercase text-cream-50 leading-[0.95]">Proudly serving <span class="text-gold">your neighborhood.</span></h2>
+    <p class="mt-5 text-cream-50/85 max-w-2xl mx-auto">~30-mile radius around the local area. Outside the zone? Give us a holler — we still might be able to help.</p>
+
+    <div class="mt-10 grid sm:grid-cols-3 gap-6">
+      <div class="frame-navy">
+        <p class="kicker text-gold">Zone № 01</p>
+        <div class="font-display text-2xl uppercase mt-2">Same-day pickup</div>
+        <div class="font-condensed text-sm tracking-widest text-cream-50/80 mt-1">Within 25 miles</div>
+      </div>
+      <div class="frame-navy">
+        <p class="kicker text-gold">Zone № 02</p>
+        <div class="font-display text-2xl uppercase mt-2">Next-day standard</div>
+        <div class="font-condensed text-sm tracking-widest text-cream-50/80 mt-1">25 – 40 miles</div>
+      </div>
+      <div class="frame-navy">
+        <p class="kicker text-gold">Zone № 03</p>
+        <div class="font-display text-2xl uppercase mt-2">Quote on call</div>
+        <div class="font-condensed text-sm tracking-widest text-cream-50/80 mt-1">40+ miles</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================== CTA ================== -->
+<section class="py-20 lg:py-28">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+    <div class="ornament"><span class="ornament-mark">⋆ ★ ⋆</span></div>
+    <h2 class="font-display text-5xl sm:text-6xl mt-4 uppercase text-ink leading-[0.95]">Let's clear <span class="font-script normal-case text-red-600 block mt-3 text-[0.8em]">your space.</span></h2>
+    <div class="ornament mt-6"><span class="ornament-mark">⋆ ⋆ ⋆</span></div>
+    <p class="mt-6 text-lg text-ink/80 max-w-xl mx-auto">Friendly crew, fair flat-rate pricing, same-day pickup available.</p>
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a href="book.html" class="btn-vintage text-base">Book Online →</a>
+      <a href="tel:+15559334285" class="btn-cream text-base">☎ (555) 933-4285</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-ink text-cream-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <a href="index.html" class="logo-frame"><img src="../Media/yeehaullogoupscale.jpg" alt="Yeehaul Junk Removal logo" /></a>
+      <p class="mt-5 text-cream-50/80 leading-relaxed font-script text-xl">Hauling off the haul since 2019.</p>
+      <p class="mt-2 text-cream-50/70 text-sm">Licensed, insured, locally owned.</p>
+    </div>
+    <div>
+      <div class="kicker text-gold mb-4">★ Pages ★</div>
+      <ul class="space-y-2 font-condensed text-lg tracking-widest">
+        <li><a href="index.html"    class="hover:text-gold transition">Home</a></li>
+        <li><a href="services.html" class="hover:text-gold transition">Services</a></li>
+        <li><a href="about.html"    class="hover:text-gold transition">About</a></li>
+        <li><a href="pricing.html"  class="hover:text-gold transition">Pricing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="kicker text-gold mb-4">★ Hours ★</div>
+      <ul class="space-y-2 italic">
+        <li>Mon – Sat · 7am – 7pm</li>
+        <li>Sunday · 9am – 5pm</li>
+        <li class="text-cream-50/60">Holiday hours vary</li>
+      </ul>
+    </div>
+    <div>
+      <div class="kicker text-gold mb-4">★ Call or write ★</div>
+      <ul class="space-y-2">
+        <li><a href="tel:+15559334285" class="font-condensed text-xl tracking-widest hover:text-gold transition">(555) 933-4285</a></li>
+        <li><a href="mailto:hello@yeehauljunk.com" class="hover:text-gold transition">hello@yeehauljunk.com</a></li>
+        <li class="text-cream-50/70 italic">Serving your local area</li>
+      </ul>
+      <a href="book.html" class="btn-on-dark mt-5">Book Online</a>
+    </div>
+  </div>
+  <div class="border-t border-gold/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs italic text-cream-50/70">
+      <div>© <span id="year">2026</span> Yeehaul Junk Removal · All rights reserved</div>
+      <div>★ Licensed · Insured · Locally Owned ★</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const t=document.getElementById('navToggle'),d=document.getElementById('mobileDrawer');
+  if(t&&d){t.addEventListener('click',()=>{const o=d.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});}
+  const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
