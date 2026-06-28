@@ -1,0 +1,6 @@
+# Netlify config for the Yeehaul static site.
+# The site files (index.html, etc.) live at the repo root, so we publish ".".
+# There is no build step — it's plain HTML/CSS with Tailwind via CDN.
+[build]
+  publish = "."
+  command = ""

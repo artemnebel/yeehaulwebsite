@@ -1,0 +1,20 @@
+# Render Blueprint — lets you deploy the quote server in one click.
+# In Render: New + → Blueprint → pick this repo. It reads this file and
+# creates the service. You'll still enter the secret env var values by hand.
+services:
+  - type: web
+    name: yeehaul-quote-server
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: EMAIL_USER
+        sync: false
+      - key: EMAIL_PASS
+        sync: false
+      - key: TO_EMAIL
+        sync: false
+      - key: ALLOWED_ORIGIN
+        sync: false
