@@ -51,6 +51,17 @@ const esc = (s = '') =>
   String(s).replace(/[&<>"']/g, (c) =>
     ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+// The date field arrives as "YYYY-MM-DD". Show it as "June 30, 2026" instead.
+// Parse the parts by hand so a timezone offset can't shift the day.
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'];
+const formatDate = (s = '') => {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s).trim());
+  if (!m) return s; // not the expected format — leave it untouched
+  const [, y, mo, d] = m;
+  return `${MONTHS[Number(mo) - 1]} ${Number(d)}, ${y}`;
+};
+
 app.get('/', (req, res) => res.send('Yeehaul quote server is running.'));
 app.get('/health', (req, res) => res.json({ ok: true }));
 
@@ -69,13 +80,13 @@ app.post('/api/quote', upload.array('photos', 5), async (req, res) => {
       ['Name', name],
       ['Phone', phone],
       ['Pickup address', address],
-      ['Preferred date', date],
+      ['Preferred date', formatDate(date)],
       ['Preferred window', window],
       ['Details', details],
     ];
 
     const html = `
-      <h2 style="font-family:sans-serif;margin:0 0 12px">New quote request — Yeehaul</h2>
+      <h2 style="font-family:sans-serif;margin:0 0 12px">New quote request</h2>
       <table cellpadding="6" style="border-collapse:collapse;font-family:sans-serif;font-size:14px">
         ${rows
           .map(
