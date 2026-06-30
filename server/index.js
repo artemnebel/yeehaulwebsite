@@ -1,22 +1,25 @@
 import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import dotenv from 'dotenv';
 
 dotenv.config();
 
 const {
-  EMAIL_USER,
-  EMAIL_PASS,
+  RESEND_API_KEY,
   TO_EMAIL,
+  // The "from" address. Must be on a domain you've verified in Resend.
+  // Until you verify a domain, use Resend's shared sender `onboarding@resend.dev`,
+  // which can only deliver to the email you signed up to Resend with.
+  FROM_EMAIL = 'Yeehaul Website <onboarding@resend.dev>',
   ALLOWED_ORIGIN,
   PORT = 3000,
 } = process.env;
 
-// Fail fast if the email account isn't configured — otherwise the server would
-// start fine but silently fail to send every quote.
-for (const key of ['EMAIL_USER', 'EMAIL_PASS', 'TO_EMAIL']) {
+// Fail fast if email isn't configured — otherwise the server would start fine
+// but silently fail to send every quote.
+for (const key of ['RESEND_API_KEY', 'TO_EMAIL']) {
   if (!process.env[key]) {
     console.error(`Missing required environment variable: ${key}`);
     process.exit(1);
@@ -41,10 +44,7 @@ const upload = multer({
   },
 });
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: { user: EMAIL_USER, pass: EMAIL_PASS },
-});
+const resend = new Resend(RESEND_API_KEY);
 
 // Escape user input before dropping it into the HTML email body.
 const esc = (s = '') =>
@@ -93,8 +93,8 @@ app.post('/api/quote', upload.array('photos', 5), async (req, res) => {
       rows.map(([k, v]) => `${k}: ${v || '—'}`).join('\n') +
       `\n\nPhotos attached: ${photos.length}`;
 
-    await transporter.sendMail({
-      from: `"Yeehaul Website" <${EMAIL_USER}>`,
+    const { error } = await resend.emails.send({
+      from: FROM_EMAIL,
       to: TO_EMAIL,
       subject: `New quote request — ${name}`,
       text,
@@ -102,9 +102,12 @@ app.post('/api/quote', upload.array('photos', 5), async (req, res) => {
       attachments: photos.map((f) => ({
         filename: f.originalname,
         content: f.buffer,
-        contentType: f.mimetype,
       })),
     });
+
+    if (error) {
+      throw new Error(error.message || 'Resend rejected the email.');
+    }
 
     res.json({ ok: true });
   } catch (err) {

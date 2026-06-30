@@ -10,9 +10,9 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: EMAIL_USER
+      - key: RESEND_API_KEY
         sync: false
-      - key: EMAIL_PASS
+      - key: FROM_EMAIL
         sync: false
       - key: TO_EMAIL
         sync: false

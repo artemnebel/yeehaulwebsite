@@ -1,26 +1,35 @@
 # Yeehaul Quote Server
 
 A tiny backend that receives the "Get a Quote" form from the website and emails
-it (with the customer's photos attached) to your inbox using Gmail.
+it (with the customer's photos attached) to your inbox using [Resend](https://resend.com).
 
 ```
-book.html form ──POST──► this server (on Render) ──email──► your Gmail inbox
+book.html form ──POST──► this server (on Render) ──Resend API──► your inbox
 ```
 
 ---
 
-## 1. Get a Gmail App Password (one time, ~2 min)
+## 1. Get a Resend API key (one time, ~2 min)
 
-Gmail won't let an app log in with your normal password, so you make a special
-16-character one:
+1. Sign up at https://resend.com (the free plan sends 3,000 emails/month,
+   100/day — plenty for quote requests).
+2. Go to **API Keys** → **Create API Key**: https://resend.com/api-keys
+3. Name it `Yeehaul website`, give it **Sending access**, and **Create**.
+4. Copy the key (starts with `re_`). You'll paste it into Render as
+   `RESEND_API_KEY`. You can't view it again later, so keep it safe.
 
-1. Turn on **2-Step Verification**: https://myaccount.google.com/security
-2. Go to **App passwords**: https://myaccount.google.com/apppasswords
-3. Type a name like `Yeehaul website` and click **Create**.
-4. Copy the 16-character code (looks like `abcd efgh ijkl mnop`). **Remove the
-   spaces** when you paste it later → `abcdefghijklmnop`.
+### About the "From" address
 
-Keep this somewhere safe — you'll paste it into Render as `EMAIL_PASS`.
+Resend only sends from addresses on a **verified domain**. You have two options:
+
+- **Start fast (no domain needed):** leave `FROM_EMAIL` as
+  `Yeehaul Website <onboarding@resend.dev>`. This shared sender works
+  immediately, but can **only deliver to the email you signed up to Resend
+  with** — so set `TO_EMAIL` to that same address.
+- **Use your own domain (recommended once live):** add and verify your domain at
+  https://resend.com/domains (add the DNS records they give you), then set
+  `FROM_EMAIL` to something like `Yeehaul <quotes@yourdomain.com>`. Now it can
+  deliver to any inbox.
 
 ---
 
@@ -37,12 +46,12 @@ Your code needs to be pushed to GitHub first (Render deploys from a repo).
    - **Plan:** Free
 4. Open the **Environment** tab and add these variables:
 
-   | Key             | Value                                                |
-   | --------------- | ---------------------------------------------------- |
-   | `EMAIL_USER`    | `yeehauljunkremoval26@gmail.com`                     |
-   | `EMAIL_PASS`    | the 16-char app password from step 1 (no spaces)     |
-   | `TO_EMAIL`      | `yeehauljunkremoval26@gmail.com`                     |
-   | `ALLOWED_ORIGIN`| leave blank for now; set to your domain later        |
+   | Key              | Value                                                       |
+   | ---------------- | ----------------------------------------------------------- |
+   | `RESEND_API_KEY` | the `re_…` key from step 1                                   |
+   | `FROM_EMAIL`     | `Yeehaul Website <onboarding@resend.dev>` (or your domain)  |
+   | `TO_EMAIL`       | where quotes land (your Resend signup email to start)       |
+   | `ALLOWED_ORIGIN` | leave blank for now; set to your domain later               |
 
 5. Click **Create Web Service**. After it builds, Render gives you a URL like
    `https://yeehaul-quote-server.onrender.com`.
@@ -56,7 +65,7 @@ Your code needs to be pushed to GitHub first (Render deploys from a repo).
 
 ## 3. Point the website at your server
 
-In `Design 1 - Warm/book.html`, find this line near the bottom:
+In `book.html`, find this line near the bottom:
 
 ```js
 const QUOTE_ENDPOINT = 'https://YOUR-SERVICE.onrender.com/api/quote';
@@ -84,11 +93,21 @@ npm run dev
 The server runs at http://localhost:3000. Set `QUOTE_ENDPOINT` in `book.html` to
 `http://localhost:3000/api/quote` while testing locally.
 
+Quick smoke test without the website:
+
+```bash
+curl -F "name=Test" -F "phone=555-1212" -F "address=123 Main St" \
+  http://localhost:3000/api/quote
+```
+
+You should get `{"ok":true}` and an email in your inbox.
+
 ---
 
-## Switching to SendGrid / Resend later
+## Why Resend over Gmail?
 
-Gmail is fine to start, but caps at ~500 emails/day and can occasionally land in
-spam. To switch, you'd replace the `nodemailer.createTransport({ service: 'gmail', ... })`
-block in `index.js` with that provider's SMTP/API settings and swap the env vars.
-The rest of the code (photos, fields) stays the same.
+Resend is an email API built for sending app/transactional mail. Compared to the
+old Gmail + app-password setup it has higher sending limits, better
+deliverability (less likely to land in spam), and a dashboard showing every
+email's delivery status — no Google "less secure app" hoops. The form fields and
+photo attachments work exactly the same.
